@@ -5,7 +5,7 @@
 
 ---
 
-## 📌 Project Overview
+##  Project Overview
 
 A UK-based online gift-ware retailer wanted to understand **who their most valuable customers are, how fast customers churn, and where revenue is concentrated** — using two years of raw, unfiltered transaction data.
 
@@ -18,7 +18,7 @@ This project takes **1.07 million rows of messy, real-world retail transactions*
 
 ---
 
-## 🛠️ Tools & Techniques
+##  Tools & Techniques
 
 | Category | Tools Used |
 |---|---|
@@ -31,7 +31,7 @@ This project takes **1.07 million rows of messy, real-world retail transactions*
 
 ---
 
-## 📊 Dataset
+##  Dataset
 
 **Source:** [Online Retail II (UCI Machine Learning Repository)](https://archive.ics.uci.edu/dataset/502/online+retail+ii) — real transactional data from a UK-based online retailer, December 2009 to December 2011.
 
@@ -47,7 +47,7 @@ This project takes **1.07 million rows of messy, real-world retail transactions*
 
 ---
 
-## 🔑 Key Insights
+##  Key Insights
 
 ### 1. Revenue is concentrated in a small, loyal core
 **Champions represent 21.6% of customers but generate 68% of total revenue** — a clear Pareto pattern. Loyal Customers over-index too, contributing 14.9% of revenue from 19.3% of the customer base.
@@ -63,7 +63,7 @@ The **"Lost"** segment (23.3% of customers, fully churned) still represents **2%
 
 ---
 
-## 📈 Dashboard Preview
+##  Dashboard Preview
 
 The final deliverable is a **single-page interactive dashboard** featuring:
 - 4 live KPI cards (Total Revenue, Total Customers, Churn Rate, Avg Order Value)
@@ -75,7 +75,7 @@ The final deliverable is a **single-page interactive dashboard** featuring:
 
 ---
 
-## 🧩 Methodology Notes
+##  Methodology Notes
 
 - **RFM Segmentation**: customers scored 1–5 on Recency, Frequency, and Monetary value using quintile-based thresholds, then classified into six segments (Champions, Loyal Customers, At Risk, Lost, New/Promising, Needs Attention).
 - **Churn definition**: any customer with no purchase in the 90 days prior to the dataset's final date is flagged "Churned." This is a right-censored dataset (it ends Dec 2011), so customers active near the cutoff will appear churned regardless of true future behavior — a known limitation of any fixed-window churn analysis.
@@ -83,7 +83,7 @@ The final deliverable is a **single-page interactive dashboard** featuring:
 
 ---
 
-## 📁 File Structure
+##  File Structure
 
 | Sheet | Contents |
 |---|---|
@@ -96,8 +96,8 @@ The final deliverable is a **single-page interactive dashboard** featuring:
 
 ---
 
-## 🚀 About This Project
+##  About This Project
 
 Built end-to-end as a self-directed portfolio project to demonstrate advanced Excel proficiency: ETL with Power Query, data modeling with Power Pivot, DAX-based analysis, and interactive dashboard design — all using tools available in standard Microsoft Excel.
 
-**Connect with me:** [Your LinkedIn] · [Your Email] · [Your Portfolio Site]
+**Connect with me:** [www.linkedin.com/in/ankit-sharma-da] · [ankitsharma74an@gmail.com] · 
