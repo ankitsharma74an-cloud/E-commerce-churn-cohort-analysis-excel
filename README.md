@@ -1,7 +1,7 @@
 # E-Commerce Customer Churn & Cohort Analysis
 ### Advanced Excel Portfolio Project | Power Query · Power Pivot · DAX · Interactive Dashboard
 
-![Dashboard Preview](images/dashboard-preview.png)
+![Dashboard Preview](dashboard-preview.png)
 
 ---
 
