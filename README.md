@@ -83,6 +83,21 @@ The final deliverable is a **single-page interactive dashboard** featuring:
 
 ---
 
+##  Challenges & Technical Problem-Solving
+
+Real-world data projects rarely go in a straight line. Documenting the actual obstacles — not just the polished output — is part of demonstrating genuine analytical competency.
+
+| # | Problem | Root Cause | Solution | Skill Demonstrated |
+|---|---|---|---|---|
+| 1 | Loading 805K+ cleaned rows into a worksheet Table repeatedly failed ("Download did not complete") | Excel's worksheet grid isn't built for datasets this large; background refresh was timing out | Loaded the cleaned data into the **Power Pivot Data Model** instead of a flat worksheet Table — a compressed, columnar format built for scale | Recognizing when a dataset has outgrown standard worksheet formulas, and pivoting the architecture accordingly |
+| 2 | `Monetary` DAX column threw `#ERROR` — "SUM cannot work with values of type String" | The `Sales` column was silently typed as Text in the Data Model, despite being set to Decimal Number in Power Query | Traced the issue back to the Power Query source, re-applied the correct type there, and refreshed through to the Data Model — rather than patching the symptom in Power Pivot | Root-cause debugging across a multi-layer pipeline (Power Query → Data Model), not just fixing the visible error |
+| 3 | RFM scores were silently calculated against the **wrong customer** — every `R_Score`/`F_Score`/`M_Score` was offset by one row | A fill-down operation shifted formula references by one row without any visible error — the sheet looked correct until manually cross-checked | Caught it by spot-checking two customers with known, opposite expected outcomes (very recent vs. very inactive) — a targeted sanity check, not a random glance. Fixed by re-entering formulas as a clean block-paste rather than drag-filling | Building in verification checkpoints rather than trusting formulas at face value — a silent logic bug is far more dangerous than a visible one |
+| 4 | Excel's native Slicers couldn't connect a single Country filter across all three pivot tables | `Cohort_Analysis` runs on the Power Pivot Data Model (OLAP cache); `RFM_Summary`/`Churn_Summary` run on a worksheet range (non-OLAP cache) — Excel slicers can't bridge these two cache types | Designed a **dual-slicer pattern**: two identically-styled Country slicers, each wired to its compatible pivot group, positioned and labeled to function as one unified control | Understanding Excel's underlying architecture well enough to work around a genuine platform limitation, rather than assuming something was broken |
+| 5 | Power Query auto-detected the `Invoice` column as a Number, silently blocking the "Does Not Begin With C" text filter needed to remove cancellations | Power Query infers column types automatically on load, which doesn't always match the semantic meaning of the data | Explicitly set `Invoice` to Text type before filtering | Not trusting default auto-detection blindly when it conflicts with the data's actual purpose |
+| 6 | Cohort retention pivot collapsed multiple years into 12 generic month-name rows (Jan, Feb...) instead of 25 distinct monthly cohorts | Excel automatically groups date fields by month-name when dragged into a pivot's Rows area, merging Jan 2010 and Jan 2011 together | Created a text-based `Cohort_Label` DAX column (e.g. "Dec-2009") — since Excel never auto-groups text fields, this fully bypassed the behavior | Choosing a workaround that eliminates a class of bug entirely, rather than repeatedly patching the same auto-grouping issue |
+
+---
+
 ##  File Structure
 
 | Sheet | Contents |
